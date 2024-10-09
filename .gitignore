@@ -33,5 +33,12 @@ out/
 /nbdist/
 /.nb-gradle/
 
+### docker-compose ###
+/src/main/resources/docker-compose.yml
+
+
+### yaml ###
+src/main/resources/application.yaml
+src/main/resources/application*.yaml
 ### VS Code ###
 .vscode/
