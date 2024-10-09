@@ -1,4 +1,4 @@
-package org.e2cho.e2cho_shopping_mall.dto.auth.provider.google;
+package org.e2cho.e2cho_shopping_mall.dto.auth.infoProvider.google;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;

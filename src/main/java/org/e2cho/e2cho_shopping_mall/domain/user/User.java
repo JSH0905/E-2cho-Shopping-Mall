@@ -4,6 +4,7 @@ package org.e2cho.e2cho_shopping_mall.domain.user;
 import jakarta.persistence.*;
 import lombok.*;
 import org.e2cho.e2cho_shopping_mall.constant.SnsType;
+import org.e2cho.e2cho_shopping_mall.dto.user.UserInfoUpdate;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
@@ -26,9 +27,10 @@ import java.util.Map;
 @EntityListeners(AuditingEntityListener.class)
 public class User implements OAuth2User {
 
+    // OAuth 2.0을 통한 회원 가입 시 기본으로 채워지는 필드
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private Long id;
 
     @Column(nullable = false, unique = true)
     private String snsId;
@@ -44,6 +46,10 @@ public class User implements OAuth2User {
 
     @Column(name = "profileImage")
     private String profileImage;
+
+    // 회원 수정으로 채울 수 있는 필드
+    @Column(name = "telephone")
+    private String telephone;
 
     @Column(name = "home_address")
     private String address;
@@ -65,6 +71,13 @@ public class User implements OAuth2User {
                 .email(email)
                 .authority("ROLE_USER")
                 .build();
+    }
+
+    public void update(UserInfoUpdate.Request request){
+        this.name = request.getName();
+        this.address = request.getAddress();
+        this.telephone = request.getTelephone();
+        this.updatedAt = LocalDateTime.now();
     }
 
     @Override
