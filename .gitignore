@@ -36,6 +36,9 @@ out/
 ### docker-compose ###
 /src/main/resources/docker-compose.yml
 
+### ProductImages ###
+/src/main/resources/static/productImages
+
 
 ### yaml ###
 src/main/resources/application.yaml

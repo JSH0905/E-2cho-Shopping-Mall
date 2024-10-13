@@ -38,6 +38,11 @@ public enum ErrorType {
             HttpStatus.CONFLICT, "이미 존재하는 유저입니다."
     ),
 
+    // ----- Product ------
+    ProductNotFoundError(
+            HttpStatus.NOT_FOUND, "상품 정보를 찾을 수 없습니다."
+    ),
+
     // ----- OAuth ------
     UnauthorizedKakaoError(
             HttpStatus.UNAUTHORIZED, "카카오를 통한 인증에 실패하였습니다."
