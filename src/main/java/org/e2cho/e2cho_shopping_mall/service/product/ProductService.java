@@ -37,7 +37,7 @@ public class ProductService {
 
     }
 
-    private Product findProduct(String productType) {
+    public Product findProduct(String productType) {
         Product foundProduct;
         if (productType.equals("basic")){
              foundProduct = productRepository.findByProductType(ProductType.BASIC)
