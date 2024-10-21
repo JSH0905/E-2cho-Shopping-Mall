@@ -43,6 +43,11 @@ public enum ErrorType {
             HttpStatus.NOT_FOUND, "상품 정보를 찾을 수 없습니다."
     ),
 
+    // ----- OrderSheet ------
+    OrderSheetNotFoundError(
+            HttpStatus.NOT_FOUND, "주문서를 찾을 수 없습니다."
+    ),
+
     // ----- OAuth ------
     UnauthorizedKakaoError(
             HttpStatus.UNAUTHORIZED, "카카오를 통한 인증에 실패하였습니다."

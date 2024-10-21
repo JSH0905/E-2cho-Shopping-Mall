@@ -39,6 +39,7 @@ public class InitialProductConfig implements CommandLineRunner {
 
                 productRepository.save(
                         Product.of(
+                                "E^2cho(기본)",
                                 productType,
                                 "echo.jpg",
                                 39800,
@@ -50,6 +51,7 @@ public class InitialProductConfig implements CommandLineRunner {
             else {
                 productRepository.save(
                         Product.of(
+                                "E^2cho(커스텀)",
                                 productType,
                                 "echoCustom.jpg",
                                 0,

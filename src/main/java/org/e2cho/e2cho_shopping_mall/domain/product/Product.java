@@ -23,6 +23,9 @@ public class Product {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column(name = "name", nullable = false)
+    private String productName;
+
     @Column(nullable = false, unique = true)
     private ProductType productType;
 
@@ -40,12 +43,14 @@ public class Product {
 
 
     public static Product of(
+            String productName,
             ProductType productType,
             String productImageName,
             int price,
             String description)
     {
         return Product.builder()
+                .productName(productName)
                 .productType(productType)
                 .productImage(productImageName)
                 .price(price)

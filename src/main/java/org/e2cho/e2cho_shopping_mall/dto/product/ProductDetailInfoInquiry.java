@@ -13,6 +13,7 @@ public class ProductDetailInfoInquiry {
     @Builder
     public static class Dto{
 
+        private String productName;
         private ProductType productType;
         private String productImageName;
         private int price;
@@ -20,6 +21,7 @@ public class ProductDetailInfoInquiry {
 
         public static Dto fromEntity(Product foundProduct){
             return Dto.builder()
+                    .productName(foundProduct.getProductName())
                     .productType(foundProduct.getProductType())
                     .productImageName(foundProduct.getProductImage())
                     .price(foundProduct.getPrice())
@@ -34,6 +36,7 @@ public class ProductDetailInfoInquiry {
     public static class Response{
 
         private String message;
+        private String productName;
         private ProductType productType;
         private String productImageName;
         private int price;
@@ -42,6 +45,7 @@ public class ProductDetailInfoInquiry {
         public static Response fromDto(Dto dto){
             return Response.builder()
                     .message("상품 상세정보를 정상적으로 불러왔습니다.")
+                    .productName(dto.getProductName())
                     .productType(dto.getProductType())
                     .productImageName(dto.getProductImageName())
                     .price(dto.getPrice())

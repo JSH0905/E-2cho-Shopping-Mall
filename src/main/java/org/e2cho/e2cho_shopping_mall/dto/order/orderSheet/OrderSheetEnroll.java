@@ -1,21 +1,19 @@
-package org.e2cho.e2cho_shopping_mall.dto.order;
+package org.e2cho.e2cho_shopping_mall.dto.order.orderSheet;
 
 import jakarta.validation.constraints.*;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 import org.e2cho.e2cho_shopping_mall.constant.ProductSize;
 import org.e2cho.e2cho_shopping_mall.constant.ProductType;
-import org.e2cho.e2cho_shopping_mall.domain.order.PurchaseOrder;
+import org.e2cho.e2cho_shopping_mall.domain.order.OrderSheet;
 
 import java.time.LocalDateTime;
 
-public class PurchaseOrderEnroll {
+public class OrderSheetEnroll {
 
     @Getter
     @Setter
     @AllArgsConstructor
+    @NoArgsConstructor
     @Builder
     public static class Request{
 
@@ -42,8 +40,6 @@ public class PurchaseOrderEnroll {
 
         private String buyerName;
         private String address;
-        private String productImageName;
-        private ProductType productType;
         private Long quantity;
         private Long totalPrice;
         private String phrase;
@@ -53,21 +49,19 @@ public class PurchaseOrderEnroll {
         private boolean paymentStatus;
         private LocalDateTime createdAt;
 
-        public static Dto fromEntity(PurchaseOrder newPurchaseOrder){
+        public static Dto fromEntity(OrderSheet newOrderSheet){
 
             return Dto.builder()
-                    .buyerName(newPurchaseOrder.getUser().getName())
-                    .address(newPurchaseOrder.getUser().getAddress())
-                    .productImageName(newPurchaseOrder.getProductImageName())
-                    .productType(newPurchaseOrder.getProductType())
-                    .quantity(newPurchaseOrder.getQuantity())
-                    .totalPrice(newPurchaseOrder.getTotalPrice())
-                    .phrase(newPurchaseOrder.getPhrase())
-                    .color(newPurchaseOrder.getColor())
-                    .font(newPurchaseOrder.getFont())
-                    .productSize(newPurchaseOrder.getProductSize())
-                    .paymentStatus(newPurchaseOrder.isPaymentStatus())
-                    .createdAt(newPurchaseOrder.getCreatedAt())
+                    .buyerName(newOrderSheet.getUser().getName())
+                    .address(newOrderSheet.getUser().getAddress())
+                    .quantity(newOrderSheet.getQuantity())
+                    .totalPrice(newOrderSheet.getTotalPrice())
+                    .phrase(newOrderSheet.getPhrase())
+                    .color(newOrderSheet.getColor())
+                    .font(newOrderSheet.getFont())
+                    .productSize(newOrderSheet.getProductSize())
+                    .paymentStatus(newOrderSheet.isPaymentStatus())
+                    .createdAt(newOrderSheet.getCreatedAt())
                     .build();
         }
     }
@@ -79,8 +73,6 @@ public class PurchaseOrderEnroll {
         private String message;
         private String buyerName;
         private String address;
-        private String productImageName;
-        private ProductType productType;
         private Long quantity;
         private Long totalPrice;
         private String phrase;
@@ -96,7 +88,6 @@ public class PurchaseOrderEnroll {
                     .message("상품이 장바구니에 성공적으로 담겼습니다.")
                     .buyerName(dto.getBuyerName())
                     .address(dto.getAddress())
-                    .productType(dto.getProductType())
                     .quantity(dto.getQuantity())
                     .totalPrice(dto.getTotalPrice())
                     .phrase(dto.getPhrase())
